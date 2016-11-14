@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryingOutStuff", "TryingOutStuff\TryingOutStuff.csproj", "{2773B6B2-0776-41CF-94F9-364723F6DE75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerFactory", "ControllerFactory\ControllerFactory.csproj", "{F891B7A6-91DF-4441-A543-5C8829DD569C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2773B6B2-0776-41CF-94F9-364723F6DE75}.Debug|x86.ActiveCfg = Debug|x86
+		{2773B6B2-0776-41CF-94F9-364723F6DE75}.Debug|x86.Build.0 = Debug|x86
+		{2773B6B2-0776-41CF-94F9-364723F6DE75}.Release|x86.ActiveCfg = Release|x86
+		{2773B6B2-0776-41CF-94F9-364723F6DE75}.Release|x86.Build.0 = Release|x86
+		{F891B7A6-91DF-4441-A543-5C8829DD569C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F891B7A6-91DF-4441-A543-5C8829DD569C}.Debug|x86.Build.0 = Debug|Any CPU
+		{F891B7A6-91DF-4441-A543-5C8829DD569C}.Release|x86.ActiveCfg = Release|Any CPU
+		{F891B7A6-91DF-4441-A543-5C8829DD569C}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
