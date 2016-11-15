@@ -5,7 +5,7 @@ namespace ControllerFactory
 {
 	public static class IOC
 	{
-		internal static Dictionary<Type, object> Dependencies = null;
+		internal static Dictionary<Type, object> Dependencies = new Dictionary<Type, object>();
 
 		public static void Bind<T>(T solidType) where T:class 
 		{
@@ -19,7 +19,7 @@ namespace ControllerFactory
 
 				if ( Dependencies!=null && Dependencies.TryGetValue(typeof(T), out registration))
 					throw new Exception("this type has been registered: " + typeof(T));
-				
+
 				//registration = Activator.CreateInstance(solidType);
 
 				Dependencies.Add(typeof(T), solidType);
