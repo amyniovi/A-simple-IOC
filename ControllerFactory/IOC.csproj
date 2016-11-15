@@ -73,7 +73,6 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="MyControllerFactory.cs" />
-    <Compile Include="IMyControllerFactory.cs" />
     <Compile Include="IOC\IOC.cs" />
     <Compile Include="IOC\IOCRegisterModule.cs" />
   </ItemGroup>
