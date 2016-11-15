@@ -1,15 +1,13 @@
 ﻿<Properties StartupConfiguration="{F891B7A6-91DF-4441-A543-5C8829DD569C}|">
-  <MonoDevelop.Ide.ItemProperties.ControllerFactory PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ControllerFactory/Views/Home/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TryingOutStuff/Lazy.cs">
     <Files>
       <File FileName="ControllerFactory/Controllers/HomeController.cs" Line="24" Column="2" />
       <File FileName="ControllerFactory/NinjectControllerFactory.cs" Line="13" Column="3" />
       <File FileName="ControllerFactory/INinjectControllerFactory.cs" Line="11" Column="55" />
-      <File FileName="ControllerFactory/IOC.cs" Line="22" Column="1" />
       <File FileName="ControllerFactory/Global.asax.cs" Line="14" Column="1" />
-      <File FileName="ControllerFactory/IOCRegisterModule.cs" Line="8" Column="1" />
       <File FileName="ControllerFactory/App_Start/RouteConfig.cs" Line="1" Column="1" />
       <File FileName="ControllerFactory/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="TryingOutStuff/Lazy.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
@@ -23,5 +21,6 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.IOC PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.TryingOutStuff PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
