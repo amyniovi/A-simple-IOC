@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
+
 namespace ControllerFactory
 {
 	public class Global : HttpApplication
@@ -12,6 +13,8 @@ namespace ControllerFactory
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 
 			IOCRegisterModule.LoadUpDependencies();
+
+			ControllerBuilder.Current.SetControllerFactory(IOC.Resolve<IControllerFactory>());
 		}
 	}
 }

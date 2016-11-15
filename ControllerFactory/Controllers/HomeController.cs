@@ -9,6 +9,14 @@ namespace ControllerFactory.Controllers
 {
 	public class HomeController : Controller
 	{
+		private IAmCrap _crappy;
+		private ILogger _logger;
+		public HomeController(ILogger logger) {
+
+
+			_logger = logger;
+		}
+
 		public ActionResult Index()
 		{
 			var mvcName = typeof(Controller).Assembly.GetName();

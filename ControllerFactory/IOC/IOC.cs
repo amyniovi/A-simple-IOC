@@ -22,7 +22,7 @@ namespace ControllerFactory
 
 				//registration = Activator.CreateInstance(solidType);
 
-				Dependencies.Add(typeof(T), solidType);
+					Dependencies.Add(typeof(T), solidType);
 				
 			}
 			finally { 
@@ -43,7 +43,6 @@ namespace ControllerFactory
 			return (T)registration;//returns null if trygetvalue is false, test this
 
 		}
-
 
 	}
 

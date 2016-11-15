@@ -3,16 +3,22 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
 using System.Collections.Generic;
+using ControllerFactory.Controllers;
+using System.Reflection;
 
 namespace ControllerFactory
 {
-	public class NinjectControllerFactory<T> : INinjectControllerFactory<T>
+	public class MyControllerFactory : IControllerFactory
 	{
 		private IController _myController = null;
 
 
 		public IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
 		{
+			//Type cType = Type.GetType(controllerName);
+
+
+			//ConstructorInfo info = cType.GetConstructor(new Type[] { ILogger, IAmCrap });
 			//_myController = 
 			//string name = requestContext.RouteData.Values["controller"].ToString();
 			//Type cType = Type.GetType(string.Format
@@ -20,7 +26,8 @@ namespace ControllerFactory
 			// typeof(Home);                                    
 
 			//IController myController = Activator.CreateInstance(cType) as IController;
-			return _myController;
+			//i need to finc the controller dynamically and my IOC needs to register dependencies for a type
+			return new HomeController(IOC.Resolve<ILogger>());
 		}
 
 		public SessionStateBehavior GetControllerSessionBehavior(RequestContext requestContext, string controllerName)
@@ -37,12 +44,12 @@ namespace ControllerFactory
 			}
 		}
 
-		IController INinjectControllerFactory<T>.CreateController(List<T> ConstructorDependencies, RequestContext requestContext, string controllerName)
+		IController CreateController<T>(List<T> ConstructorDependencies, RequestContext requestContext, string controllerName)
 		{
 			throw new NotImplementedException();
 		}
 
-		IController INinjectControllerFactory<T>.CreateController(T ConstructorDependency, RequestContext requestContext, string controllerName)
+		IController CreateController<T>(T ConstructorDependency, RequestContext requestContext, string controllerName)
 		{
 			throw new NotImplementedException();
 		}

@@ -1,17 +1,37 @@
 ﻿<Properties StartupConfiguration="{F891B7A6-91DF-4441-A543-5C8829DD569C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ControllerFactory/Controllers/HomeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ControllerFactory/Global.asax.cs">
     <Files>
-      <File FileName="ControllerFactory/IOC/IOC.cs" Line="25" Column="1" />
-      <File FileName="ControllerFactory/IOC/IOCRegisterModule.cs" Line="19" Column="33" />
-      <File FileName="ControllerFactory/Controllers/HomeController.cs" Line="20" Column="23" />
-      <File FileName="ControllerFactory/MyControllerFactory.cs" Line="1" Column="1" />
-      <File FileName="ControllerFactory/IMyControllerFactory.cs" Line="1" Column="1" />
+      <File FileName="ControllerFactory/IOC/IOC.cs" Line="23" Column="30" />
+      <File FileName="ControllerFactory/IOC/IOCRegisterModule.cs" Line="15" Column="4" />
+      <File FileName="ControllerFactory/Controllers/HomeController.cs" Line="16" Column="4" />
+      <File FileName="ControllerFactory/MyControllerFactory.cs" Line="47" Column="4" />
+      <File FileName="ControllerFactory/IMyControllerFactory.cs" Line="17" Column="4" />
+      <File FileName="ControllerFactory/App_Start/RouteConfig.cs" Line="1" Column="1" />
+      <File FileName="ControllerFactory/Global.asax.cs" Line="14" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TryingOutStuff" expanded="True">
+            <Node name="IOC" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="IOC" expanded="True" />
+              <Node name="Global.asax" expanded="True">
+                <Node name="Global.asax.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="TryingOutStuff" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/IOC/IOC.cs" line="25" column="1" />
+      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/MyControllerFactory.cs" line="46" column="1" />
+      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/MyControllerFactory.cs" line="23" column="1" />
+      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/MyControllerFactory.cs" line="47" column="4" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
