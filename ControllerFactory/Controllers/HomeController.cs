@@ -17,7 +17,7 @@ namespace ControllerFactory.Controllers
 			ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
 			ViewData["Runtime"] = isMono ? "Mono" : ".NET";
 
-			var crap = IOC.Resolve(typeof(IAmCrap));
+			IAmCrap crap = IOC.Resolve<IAmCrap>();
 			return View();
 		}
 	}

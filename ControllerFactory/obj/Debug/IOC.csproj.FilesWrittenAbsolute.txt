@@ -1,0 +1,12 @@
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/obj/Debug/ControllerFactory.dll
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/obj/Debug/ControllerFactory.dll.mdb
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/System.Web.Razor.dll
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/Microsoft.Web.Infrastructure.dll
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/System.Web.Helpers.dll
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/System.Web.WebPages.Deployment.dll
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/System.Web.WebPages.dll
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/System.Web.WebPages.Razor.dll
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/System.Web.Mvc.dll
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/ControllerFactory.dll.mdb
+/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/bin/ControllerFactory.dll

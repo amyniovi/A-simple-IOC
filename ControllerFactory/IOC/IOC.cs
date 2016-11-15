@@ -7,19 +7,22 @@ namespace ControllerFactory
 	{
 		internal static Dictionary<Type, object> Dependencies = null;
 
-		public static void BindTo(this Type type, Type solidType) {
+		public static void Bind<T>(T solidType) where T:class 
+		{
 			//enter write lock
 			try {
+				
 				object registration = null;
 
 				if (solidType == null)
 					throw new ArgumentNullException();
 
-				if ( Dependencies!=null && Dependencies.TryGetValue(type, out registration))
-					throw new Exception("this type has been registered: " + type);
+				if ( Dependencies!=null && Dependencies.TryGetValue(typeof(T), out registration))
+					throw new Exception("this type has been registered: " + typeof(T));
 				
-				registration = Activator.CreateInstance(solidType);
-				Dependencies.Add(type, registration);
+				//registration = Activator.CreateInstance(solidType);
+
+				Dependencies.Add(typeof(T), solidType);
 				
 			}
 			finally { 
@@ -27,28 +30,27 @@ namespace ControllerFactory
 			//exit write lock
 			}
 		}
-		public static object Resolve(Type passedInDependency)
+		//simplified version, just news up the solid type assumming it has a parameterless constructor
+		public static T Resolve<T>()
 
 		{
 			object registration = null;
 
-			if (passedInDependency == null)
-				throw new ArgumentNullException();
-
 			if (Dependencies == null || Dependencies.Count == 0)
-				throw new Exception("IOC Framework Missing Registrations, including a registration for : " + passedInDependency);
+				throw new Exception("IOC Framework Missing Registrations, including a registration for : " + typeof(T));
 
-
-			Dependencies.TryGetValue(passedInDependency, out registration);
-			return registration;//returns null if trygetvalue is false, test this
+			Dependencies.TryGetValue(typeof(T), out registration);
+			return (T)registration;//returns null if trygetvalue is false, test this
 
 		}
 
 
 	}
+
+
 	public class Registration
 	{
 
-		// define this later, for now use "object"
+		// define this later, for now use type as dependency and "object" as solid
 	}
 }

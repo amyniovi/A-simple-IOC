@@ -5,14 +5,16 @@ namespace ControllerFactory
 	{
 		public static void LoadUpDependencies()
 		{
-			typeof(IAmCrap).BindTo(typeof(SolidCrap));
+			
+			IOC.Bind<IAmCrap>(new SolidCrap());
+				
 		
 		}
 	}
 }
 
 
-public interface IAmCrap { }
+public interface IAmCrap { } 
 
 public class SolidCrap : IAmCrap
 { }
