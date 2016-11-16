@@ -7,10 +7,9 @@ namespace ControllerFactory
 	{
 		public static void LoadUpDependencies()
 		{
-
-			IOC.Bind<IAmCrap>(new SolidCrap());
-			IOC.Bind<ILogger>(new Logger());
-			IOC.Bind<IControllerFactory>(new MyControllerFactory());
+			IOC.Bind2<IAmCrap, SolidCrap>();
+			IOC.Bind2<ILogger, Logger>();
+			IOC.Bind2<IControllerFactory, MyControllerFactory>();
 
 		}
 	}
