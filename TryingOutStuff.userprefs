@@ -1,16 +1,18 @@
 ﻿<Properties StartupConfiguration="{F891B7A6-91DF-4441-A543-5C8829DD569C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ControllerFactory/MyControllerFactory.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ControllerFactory/IOC/IOC.cs">
     <Files>
-      <File FileName="ControllerFactory/IOC/IOC.cs" Line="69" Column="3" />
-      <File FileName="ControllerFactory/IOC/IOCRegisterModule.cs" Line="12" Column="42" />
-      <File FileName="ControllerFactory/Global.asax.cs" Line="17" Column="4" />
-      <File FileName="ControllerFactory/Controllers/HomeController.cs" Line="17" Column="21" />
-      <File FileName="ControllerFactory/MyControllerFactory.cs" Line="30" Column="22" />
+      <File FileName="ControllerFactory/IOC/IOC.cs" Line="60" Column="15" />
+      <File FileName="ControllerFactory/IOC/IOCRegisterModule.cs" Line="27" Column="2" />
+      <File FileName="ControllerFactory/Controllers/HomeController.cs" Line="30" Column="1" />
+      <File FileName="ControllerFactory/MyControllerFactory.cs" Line="32" Column="1" />
+      <File FileName="ControllerFactory/Global.asax.cs" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/IOC/IOC.cs" line="84" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.IDisposable PreferredExecutionTarget="MonoDevelop.Default" />

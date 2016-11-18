@@ -8,15 +8,13 @@ using System.Reflection;
 
 namespace ControllerFactory
 {
-	public class MyControllerFactory : IControllerFactory
+	public class MyControllerFactory : DefaultControllerFactory
 	{
 		private IController _myController = null;
 
-
-		public IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
+		public override IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
 		{
 			//Type cType = Type.GetType(controllerName);
-
 
 			//ConstructorInfo info = cType.GetConstructor(new Type[] { ILogger, IAmCrap });
 			//_myController = 
@@ -26,7 +24,10 @@ namespace ControllerFactory
 			// typeof(Home);                                    
 
 			//IController myController = Activator.CreateInstance(cType) as IController;
-			//i need to finc the controller dynamically and my IOC needs to register dependencies for a type
+			//i need to finc the controller dynamically and my IOC needs to register dependencies for a 
+
+
+			//return (IController) IOC.Resolve(cType);
 			return new HomeController(IOC.Resolve<ILogger>());
 		}
 
@@ -35,7 +36,7 @@ namespace ControllerFactory
 			return SessionStateBehavior.Default;
 		}
 
-		public void ReleaseController(IController controller)
+		public override void ReleaseController(IController controller)
 		{
 			var disposable = _myController as IDisposable;
 			if (disposable != null)

@@ -11,18 +11,20 @@ namespace DisposableStuff
 			//In a virtual method invocation, the run-time type of the instance for which that invocation takes place
 			//determines the actual method implementation to invoke.
 			//In a non-virtual method invocation, the compile-time type of the instance is the determining factor.
-			DatabaseState baseState = new DatabaseState();
-			baseState.Dispose();
+			//DatabaseState baseState = new DatabaseState();
+			//baseState.Dispose(true);
 			DatabaseState state = new SharedDatabaseState();
-			state.Dispose();
-			SharedDatabaseState derivedState = new SharedDatabaseState();
-			derivedState.Dispose(false);
+			state.Dispose(true);
+			((SharedDatabaseState)state).Dispose(true);
+			((DatabaseState)state).Dispose(true);
+			//SharedDatabaseState derivedState = new SharedDatabaseState();
+			//((DatabaseState)derivedState).Dispose(true);
 
 
-			using (var dbS = new DatabaseState())
-			{
-				dbS.QueryDb();
-			}
+			//using (var dbS = new DatabaseState())
+			//{
+		//		dbS.QueryDb();
+		//	}
 			Console.WriteLine("Hello World!");
 		}
 
@@ -30,7 +32,7 @@ namespace DisposableStuff
 		public class DatabaseState : IDisposable
 		{
 			SqlConnection _sqlConnection = null;
-			bool _disposed = true;
+			bool _disposed = false;
 
 			public void QueryDb() {
 				if (_disposed)
@@ -49,8 +51,8 @@ namespace DisposableStuff
 
 			public virtual void Dispose(bool disposing)
 			{
-				if (_disposed)
-					return;
+				//if (_disposed)
+				//	return;
 				if (disposing)
 				{
 					if (_sqlConnection != null)
@@ -71,7 +73,7 @@ namespace DisposableStuff
 
 		public class SharedDatabaseState : DatabaseState
 		{
-			public override void Dispose(bool disposing)
+			public new void Dispose(bool disposing)
 			{
 				Console.WriteLine("doing nothing");
 			}
