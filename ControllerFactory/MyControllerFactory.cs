@@ -11,24 +11,14 @@ namespace ControllerFactory
 	public class MyControllerFactory : DefaultControllerFactory
 	{
 		private IController _myController = null;
+		private string _controllerNamespace = "ControllerFactory.Controllers.";
 
 		public override IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
 		{
-			//Type cType = Type.GetType(controllerName);
+			//to make it easy: (simplest implementation)
+			Type controllerType = Type.GetType(string.Concat(_controllerNamespace, controllerName , "Controller"));
 
-			//ConstructorInfo info = cType.GetConstructor(new Type[] { ILogger, IAmCrap });
-			//_myController = 
-			//string name = requestContext.RouteData.Values["controller"].ToString();
-			//Type cType = Type.GetType(string.Format
-			// ("CustomControllerFactory.Controllers.{0}",controllerName));
-			// typeof(Home);                                    
-
-			//IController myController = Activator.CreateInstance(cType) as IController;
-			//i need to finc the controller dynamically and my IOC needs to register dependencies for a 
-
-
-			//return (IController) IOC.Resolve(cType);
-			return new HomeController(IOC.Resolve<ILogger>());
+			return (IController) IOC.Resolve(controllerType);
 		}
 
 		public SessionStateBehavior GetControllerSessionBehavior(RequestContext requestContext, string controllerName)

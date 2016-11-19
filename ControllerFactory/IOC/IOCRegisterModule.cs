@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using ControllerFactory.Controllers;
 
 namespace ControllerFactory
 {
@@ -11,6 +12,7 @@ namespace ControllerFactory
 			IOC.Bind<ISomeRepo, SomeRepo>();
 			IOC.Bind<IAmCrap, SolidCrap>();
 			IOC.Bind<IControllerFactory, MyControllerFactory>();
+			IOC.Bind<HomeController, HomeController>();
 
 		}
 	}
