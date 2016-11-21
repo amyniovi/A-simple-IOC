@@ -66,6 +66,7 @@
     <Folder Include="Scripts\" />
     <Folder Include="IOC\" />
     <Folder Include="Services\" />
+    <Folder Include="Core\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -73,13 +74,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="MyControllerFactory.cs" />
-    <Compile Include="IOC\IOC.cs" />
     <Compile Include="IOC\IOCRegisterModule.cs" />
     <Compile Include="Services\IStupidService.cs" />
     <Compile Include="Services\StupidService.cs" />
     <Compile Include="Services\LoggingStupidService.cs" />
     <Compile Include="Services\RealliyStupidService.cs" />
+    <Compile Include="Core\IAmCrap.cs" />
+    <Compile Include="Core\ILogger.cs" />
+    <Compile Include="Core\ISomeRepo.cs" />
+    <Compile Include="Core\Logger.cs" />
+    <Compile Include="Core\SolidCrap.cs" />
+    <Compile Include="Core\SomeRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -90,6 +95,16 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IOC\IOC.Core.csproj">
+      <Project>{3582D035-4E05-44D3-8291-F4A32CE4E8A5}</Project>
+      <Name>IOC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IOC.Web.MVC\IOC.Web.MVC.csproj">
+      <Project>{32CFDEB4-FBA1-4E49-BE3F-BB7F1AE268E5}</Project>
+      <Name>IOC.Web.MVC</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

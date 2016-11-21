@@ -3,15 +3,16 @@ using System.Collections.Generic;
 
 namespace ControllerFactory
 {
-	public static class IOC
+
+	public class Kernel
 	{
 		//internal static Dictionary<Type, object> Dependencies = new Dictionary<Type, object>();
 		// Services: Contract - Implementation Types
-		internal static Dictionary<Type, Type> Services = new Dictionary<Type, Type>();
+		internal Dictionary<Type, Type> Services = new Dictionary<Type, Type>();
 		//ImplementationConstructorDependencies
-		internal static Dictionary<Type, List<Type>> ImplementationCtorInfo = new Dictionary<Type, List<Type>>();
+		internal Dictionary<Type, List<Type>> ImplementationCtorInfo = new Dictionary<Type, List<Type>>();
 
-		public static void Bind<T, U>()
+		public void Bind<T, U>()
 		{
 			//enter write lock
 			try
@@ -31,14 +32,15 @@ namespace ControllerFactory
 					}
 
 				}
-				if (ctorDependencies!=null && ctorDependencies.Count>0)
-				ImplementationCtorInfo.Add(typeof(U), ctorDependencies );
+				if (ctorDependencies != null && ctorDependencies.Count > 0)
+					ImplementationCtorInfo.Add(typeof(U), ctorDependencies);
 
 
 			}
-			catch (Exception e) {
+			catch (Exception e)
+			{
 
-				throw new Exception("BIND ERROR: "+ e.Message);
+				throw new Exception("BIND ERROR: " + e.Message);
 			}
 			finally
 			{
@@ -46,34 +48,9 @@ namespace ControllerFactory
 				//exit write lock
 			}
 		}
-		/*
-		public static void Bind<T>(T solidType) where T:class 
-		{
-			//enter write lock
-			try {
-				
-				object registration = null;
-
-				if (solidType == null)
-					throw new ArgumentNullException();
-
-				if ( Dependencies!=null && Dependencies.TryGetValue(typeof(T), out registration))
-					throw new Exception("this type has been registered: " + typeof(T));
-
-				//registration = Activator.CreateInstance(solidType);
-
-					Dependencies.Add(typeof(T), solidType);
-				
-			}
-			finally { 
-			
-			//exit write lock
-			}
-		}
-		*/
 
 		//simplified version, just news up the solid type assumming it has a parameterless constructor
-		public static object Resolve(Type type)
+		public object Resolve(Type type)
 		{
 			Type registration;
 			List<Type> registrationCtorDependencies;
@@ -99,7 +76,6 @@ namespace ControllerFactory
 				}
 
 
-
 				return Activator.CreateInstance(registration);
 			}
 			catch (Exception e)
@@ -110,7 +86,7 @@ namespace ControllerFactory
 		}
 
 
-		public static T Resolve<T>() where T :class 
+		public T Resolve<T>() where T : class
 		{
 			return (T)Resolve(typeof(T));
 		}
@@ -140,12 +116,5 @@ namespace ControllerFactory
 			}
 			return typeConstructorParams;
 		}
-}
-
-
-	public class Registration
-	{
-
-		// define this later, for now use type as dependency and "object" as solid
 	}
 }

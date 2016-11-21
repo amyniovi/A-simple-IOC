@@ -1,7 +1,7 @@
-﻿using System.Web;
+﻿using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-
 
 namespace ControllerFactory
 {
@@ -11,10 +11,10 @@ namespace ControllerFactory
 		{
 			AreaRegistration.RegisterAllAreas();
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
+			var kernel = new Kernel();
 
-			IOCRegisterModule.LoadUpDependencies();
-
-			ControllerBuilder.Current.SetControllerFactory(IOC.Resolve<IControllerFactory>());
+			IOCRegisterModule.LoadUpDependencies(kernel);
+			ControllerBuilder.Current.SetControllerFactory(new MyControllerFactory(kernel));
 		}
 	}
 }
