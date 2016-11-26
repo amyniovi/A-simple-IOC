@@ -141,16 +141,14 @@ namespace IOC
 					return this;
 			if (singletonCtx == null || (singletonCtx != null && singletonCtx.TargetImplementationType == null))
 			{
-				//we have already bound the service but not in sinlgeton scope 
 				throw new Exception("This service has not been bound to a type, Call Bind<T1,T2> first then determine Scope ");
 			}
-			//we dont really need to make it lazy?
+			//we dont really need to make it lazy
 			var singleton = this.Resolve<T>();//new Lazy<T>(() => , true);
 			singletonCtx.TargetImplementationInstance = singleton;
 			singletonCtx.Scope = LifeCycleScope.SINGLETON;
 
 			Services[typeof(T)] = singletonCtx;
-
 			return this;
 		}
 
