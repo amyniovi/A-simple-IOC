@@ -33,6 +33,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IOC.cs" />
     <Compile Include="Kernel.cs" />
+    <Compile Include="LifeCycle\LifeCycleScope.cs" />
+    <Compile Include="LifeCycle\ScopeCallbacks.cs" />
+    <Compile Include="LifeCycle\BindingConfiguration.cs" />
+    <Compile Include="IContext.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="IRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LifeCycle\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

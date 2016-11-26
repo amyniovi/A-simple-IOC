@@ -1,8 +1,8 @@
 using System;
 using System.Web.Mvc;
-using ControllerFactory.Controllers;
+using IOC.Controllers;
 
-namespace ControllerFactory
+namespace IOC
 {
 	
 	public class SomeRepo : ISomeRepo

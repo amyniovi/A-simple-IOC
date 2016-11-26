@@ -1,22 +1,18 @@
 ﻿<Properties StartupConfiguration="{F891B7A6-91DF-4441-A543-5C8829DD569C}|">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="ControllerFactory/IOC/IOCRegisterModule.cs">
     <Files>
-      <File FileName="ControllerFactory/Global.asax.cs" Line="17" Column="81" />
-      <File FileName="ControllerFactory/Controllers/HomeController.cs" Line="8" Column="19" />
-      <File FileName="IOC/Kernel.cs" Line="108" Column="26" />
-      <File FileName="ControllerFactory/IOC/IOCRegisterModule.cs" Line="14" Column="1" />
-      <File FileName="ControllerFactory/Core/Logger.cs" Line="1" Column="1" />
-      <File FileName="ControllerFactory/Core/SolidCrap.cs" Line="7" Column="2" />
-      <File FileName="IOC.Web.MVC/MyControllerFactory.cs" Line="34" Column="1" />
+      <File FileName="IOC/Kernel.cs" Line="165" Column="63" />
+      <File FileName="IOC/Context.cs" Line="25" Column="35" />
+      <File FileName="IOC/IContext.cs" Line="21" Column="30" />
+      <File FileName="ControllerFactory/Global.asax.cs" Line="18" Column="1" />
+      <File FileName="ControllerFactory/IOC/IOCRegisterModule.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint enabled="false" file="/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/IOC/Kernel.cs" line="93" column="1" />
-      <Breakpoint enabled="false" file="/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/IOC/Kernel.cs" line="65" column="1" />
-      <Breakpoint enabled="false" file="/Users/amyniovi/Projects/TryingOutStuff/ControllerFactory/IOC/Kernel.cs" line="21" column="1" />
-      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/IOC.Web.MVC/MyControllerFactory.cs" line="33" column="1" />
+      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/IOC/Kernel.cs" line="167" column="1" />
+      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/IOC/Kernel.cs" line="174" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

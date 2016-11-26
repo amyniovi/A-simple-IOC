@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace ControllerFactory
+namespace IOC
 {
 	public class RouteConfig
 	{

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 
-namespace ControllerFactory.Controllers
+namespace IOC.Controllers
 {	
 	public class HomeController : Controller
 	{
@@ -26,11 +26,11 @@ namespace ControllerFactory.Controllers
 			//var crap = Activator.CreateInstance(typeof(SolidCrap), new object[] { new Logger(), new SomeRepo(new Logger())});
 			//var mycrap = new SolidCrap(new Logger(), new SomeRepo(new Logger()));
 			//IStupidService stupidService = new LoggingStupidService(new StupidService());
-			IStupidService stupidService =
-				isMono ? (IStupidService) new LoggingStupidService(new StupidService()) : new ReallyStupidService();
+		//	IStupidService stupidService =
+		//		isMono ? (IStupidService) new LoggingStupidService(new StupidService()) : new ReallyStupidService();
 
 			ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor + _iamCrap.GetType();
-			ViewData["Runtime"] = isMono ? stupidService.Stupid() : ".NET";
+		//	ViewData["Runtime"] = isMono ? stupidService.Stupid() : ".NET";
 
 			return View();
 		}

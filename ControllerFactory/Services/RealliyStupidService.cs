@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ControllerFactory
+namespace IOC
 {
 	public class ReallyStupidService : IStupidService
 	{

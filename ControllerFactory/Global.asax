@@ -1,1 +1,1 @@
-﻿<%@ Application Inherits="ControllerFactory.Global" %>
+﻿<%@ Application Inherits="IOC.Global" %>

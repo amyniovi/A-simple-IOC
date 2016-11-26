@@ -1,90 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 
-namespace ControllerFactory
+namespace IOC
 {
 
 	public class Kernel
 	{
-		//internal static Dictionary<Type, object> Dependencies = new Dictionary<Type, object>();
+		public const string BIND_ERROR = "BIND ERROR: ";
+		public const string RESOLVE_ERROR = "RESOLVE ERROR: ";
 		// Services: Contract - Implementation Types
-		internal Dictionary<Type, Type> Services = new Dictionary<Type, Type>();
+		internal ConcurrentDictionary<Type, IContext> Services = new ConcurrentDictionary<Type, IContext>();
 		//ImplementationConstructorDependencies
 		internal Dictionary<Type, List<Type>> ImplementationCtorInfo = new Dictionary<Type, List<Type>>();
 
-		public void Bind<T, U>()
+		public Kernel Bind<T, U>()
 		{
 			//enter write lock
 			try
 			{
-				Services.Add(typeof(T), typeof(U));
+				if (!(typeof(U) is IContext))
+				{
+					var serviceContext = new Context();
+					serviceContext.TargetImplementationType = typeof(U);
+
+					if (!Services.TryAdd(typeof(T), serviceContext))
+						throw new Exception(BIND_ERROR + " Remove duplicate binding");
+				}
+				else
+					if (!Services.TryAdd(typeof(T), (IContext)typeof(U)))
+					throw new Exception(BIND_ERROR + " Remove duplicate binding");
+
 				var ctorDependencies = GetTypeConstructorDependencies(typeof(U));
 				foreach (var type in ctorDependencies)
 				{
 					if (Services.ContainsKey(type))
 					{
-
 						//constructor dependencies for type have already been registered to a concrete type
-
+						//do nothing
 					}
 					else {
-						throw new Exception("Constructor of type: " + type + " has unregistered Dependencies with the IOC");
+						throw new Exception(BIND_ERROR + "Constructor of type: " + type + " has unregistered Dependencies with the IOC");
 					}
 
 				}
 				if (ctorDependencies != null && ctorDependencies.Count > 0)
 					ImplementationCtorInfo.Add(typeof(U), ctorDependencies);
 
-
+				return this;
 			}
 			catch (Exception e)
 			{
-
-				throw new Exception("BIND ERROR: " + e.Message);
+				throw new Exception(BIND_ERROR + e.Message);
 			}
 			finally
 			{
-
 				//exit write lock
 			}
 		}
 
-		//simplified version, just news up the solid type assumming it has a parameterless constructor
 		public object Resolve(Type type)
 		{
 			Type registration;
+			IContext registrationContext;
 			List<Type> registrationCtorDependencies;
 			List<object> registrationCtorSolidTypes = new List<object>();
 
-			//if (Services == null || Services.Count == 0)
-			//	throw new Exception("IOC Framework Missing Registrations, including a registration for : " + type);
-
 			try
 			{
-				Services.TryGetValue(type, out registration);
+				Services.TryGetValue(type, out registrationContext);
+				if (registrationContext.Scope == LifeCycleScope.SINGLETON)
+					return registrationContext.TargetImplementationInstance;
 
+				registration = registrationContext.TargetImplementationType;
 				if (ImplementationCtorInfo.TryGetValue(registration, out registrationCtorDependencies))
 				{
-					//hard shit
 					foreach (var dependencyType in registrationCtorDependencies)
 					{
 						registrationCtorSolidTypes.Add(Resolve(dependencyType));
-
-
 					}
 					return Activator.CreateInstance(registration, registrationCtorSolidTypes.ToArray());
 				}
-
-
 				return Activator.CreateInstance(registration);
 			}
 			catch (Exception e)
 			{
-
-				throw new Exception("RESOLVE EROR: " + e.Message);
+				throw new Exception(RESOLVE_ERROR + e.Message);
 			}
 		}
-
 
 		public T Resolve<T>() where T : class
 		{
@@ -112,9 +115,63 @@ namespace ControllerFactory
 						typeConstructorParams.Add(param.ParameterType);
 					}
 				}
-
 			}
 			return typeConstructorParams;
 		}
+
+		public Kernel InScope<T>()
+		{
+			//implement
+			return this;
+		}
+
+		public Kernel InTransientScope<T>()
+		{
+			//implement
+			return this;
+		}
+
+		//per kernel lifecycle (do we need to do anything extra to ensure its per kernel?
+		public Kernel InSingletonScope<T>() where T : class
+		{
+			IContext singletonCtx = null;
+			if (Services.TryGetValue(typeof(T), out singletonCtx))
+				if (singletonCtx.Scope == LifeCycleScope.SINGLETON && singletonCtx.TargetImplementationInstance != null)
+					//we already have our singleton, do nothing.
+					return this;
+			if (singletonCtx == null || (singletonCtx != null && singletonCtx.TargetImplementationType == null))
+			{
+				//we have already bound the service but not in sinlgeton scope 
+				throw new Exception("This service has not been bound to a type, Call Bind<T1,T2> first then determine Scope ");
+			}
+			//we dont really need to make it lazy?
+			var singleton = this.Resolve<T>();//new Lazy<T>(() => , true);
+			singletonCtx.TargetImplementationInstance = singleton;
+			singletonCtx.Scope = LifeCycleScope.SINGLETON;
+
+			Services[typeof(T)] = singletonCtx;
+
+			return this;
+		}
+
+		public Kernel InWebRequestScope<T>(System.Net.HttpWebRequest request)
+		{
+			//implement
+			return this;
+		}
 	}
+
+
+	/*just testing*/
+	public class SubKernel
+	{
+
+		public void Dowork()
+		{
+
+			var k = new Kernel();
+			k.Bind<IContext, IContext>().InSingletonScope<IContext>();
+		}
+	}
+
 }

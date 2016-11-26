@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
 
-namespace ControllerFactory
+
+namespace IOC
 {
 	public class MyControllerFactory : DefaultControllerFactory
 	{
 		private IController _myController = null;
 		private Kernel _kernel;
+
 
 		public MyControllerFactory(Kernel kernel)
 		{
@@ -30,7 +32,8 @@ namespace ControllerFactory
 
 		public override void ReleaseController(IController controller)
 		{
-			base.ReleaseController(_myController);
+			//destroy scope
+			 base.ReleaseController(_myController);
 		}
 
 	}

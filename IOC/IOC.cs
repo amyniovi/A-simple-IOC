@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ControllerFactory
+namespace IOC
 {
 
 	public static class IOC
