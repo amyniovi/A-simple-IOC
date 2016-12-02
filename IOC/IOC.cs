@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
+/*
+OBSOLETE CLASS-- USE KERNEL INSTEAD
+*/
 namespace IOC
 {
 

@@ -1,37 +1,43 @@
 using System;
+using System.Threading;
+using System.Web;
 namespace IOC
 {
 	/*
-	Contains information about the activation of a single instance.
+	Contains metadata about the activation of a single instance.
 	*/
 
 	public class Context : IContext
 	{
-		public Kernel CurrentKernel
-		{
-			get; set;
-		}
+		public Kernel CurrentKernel { get; set; }
 
-		public Type TargetImplementationType
-		{
-			get; set;
-		}
+		public Thread CurrentThread { get; set; }
+
+		public Type TargetImplementationType { get; set; }
 
 		public object GetScope()
 		{
-			throw new NotImplementedException();
+			//hate case statements, another way to do this???
+			switch (Scope)
+			{
+				case LifeCycleScope.TRANSIENT:
+					return ScopeCallbacks.Transient(this);
+				case LifeCycleScope.SINGLETON:
+					return ScopeCallbacks.Singleton(this);
+				case LifeCycleScope.THREAD:
+				return ScopeCallbacks.Thread(this);
+				case LifeCycleScope.WEBREQUEST:
+					return ScopeCallbacks.WebRequest(this);
+				default:
+					return ScopeCallbacks.Transient(this);
+
+			}
 		}
 
-		public LifeCycleScope Scope{get; set;}
+		public LifeCycleScope Scope { get; set; }
 
-		public Request Request
-		{
-			get; set;
-		}
+		public HttpRequestBase Request { get; set; }
 
-		public object TargetImplementationInstance
-		{
-			get; set;
-		}
+		public object TargetImplementationInstance { get; set; }
 	}
 }

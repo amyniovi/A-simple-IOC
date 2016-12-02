@@ -8,10 +8,10 @@ namespace IOC
 	{
 		public static void LoadUpDependencies(Kernel kernel)
 		{
-
+			kernel.Bind<IContext, Context>();
 			kernel.Bind<ILogger, Logger>().InSingletonScope<ILogger>();
-			kernel.Bind<ISomeRepo, SomeRepo>();
-			kernel.Bind<IAmCrap, SolidCrap>();
+			kernel.Bind<ISomeRepo, SomeRepo>().InWebRequestScope<ISomeRepo>();
+			//kernel.Bind<IAmCrap, SolidCrap>();
 			kernel.Bind<HomeController, HomeController>();
 		}
 	}

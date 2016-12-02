@@ -10,26 +10,24 @@ namespace IOC.Controllers
 	public class HomeController : Controller
 	{
 		private ILogger _logger;
-		private IAmCrap _iamCrap;
+		private ISomeRepo _repo;
 
-		public HomeController(ILogger logger, IAmCrap iamCrap) {
+		public HomeController(ILogger logger, ISomeRepo repo) {
 			_logger = logger;
-			_iamCrap = iamCrap;
+			_repo = repo;
 		}
 
 		public ActionResult Index()
 		{
-			//var kernel = new Kernel();
+			
 			var mvcName = typeof(Controller).Assembly.GetName();
 			var isMono = Type.GetType("Mono.Runtime") != null;
-			// var crap = kernel.Resolve<IAmCrap>();
-			//var crap = Activator.CreateInstance(typeof(SolidCrap), new object[] { new Logger(), new SomeRepo(new Logger())});
-			//var mycrap = new SolidCrap(new Logger(), new SomeRepo(new Logger()));
+
 			//IStupidService stupidService = new LoggingStupidService(new StupidService());
 		//	IStupidService stupidService =
 		//		isMono ? (IStupidService) new LoggingStupidService(new StupidService()) : new ReallyStupidService();
 
-			ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor + _iamCrap.GetType();
+			ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor + _repo.GetType();
 		//	ViewData["Runtime"] = isMono ? stupidService.Stupid() : ".NET";
 
 			return View();

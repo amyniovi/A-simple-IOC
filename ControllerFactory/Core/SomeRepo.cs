@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using IOC.Controllers;
 
@@ -12,6 +13,11 @@ namespace IOC
 		{
 			_logger = logger;
 
+		}
+
+		public List<string> GetAll()
+		{
+			return new List<string>() { "macbook", "macbook Air", "macbook Pro" };
 		}
 	}
 }
