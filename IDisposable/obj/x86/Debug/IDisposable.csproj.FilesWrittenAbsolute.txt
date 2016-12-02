@@ -1,5 +1,0 @@
-/Users/amyniovi/Projects/TryingOutStuff/IDisposable/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/amyniovi/Projects/TryingOutStuff/IDisposable/bin/Debug/IDisposable.exe.mdb
-/Users/amyniovi/Projects/TryingOutStuff/IDisposable/bin/Debug/IDisposable.exe
-/Users/amyniovi/Projects/TryingOutStuff/IDisposable/obj/x86/Debug/IDisposable.exe
-/Users/amyniovi/Projects/TryingOutStuff/IDisposable/obj/x86/Debug/IDisposable.exe.mdb
