@@ -18,8 +18,6 @@ namespace IOC
 		//Solid Type's instance
 		object TargetImplementationInstance { get; set;}
 
-		HttpRequestBase Request { get; set; }
-
 		LifeCycleScope Scope { get; set;}
 
 		Thread CurrentThread { get; set;}

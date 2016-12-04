@@ -5,6 +5,8 @@ namespace IOC
 {
 	public static class ScopeCallbacks
 	{
+		private static object lockObj = new object();
+
 		public static readonly Func<IContext, object> Transient = ctx => null;
 
 		public static readonly Func<IContext, object> Thread = ctx =>
@@ -17,9 +19,15 @@ namespace IOC
 
 		public static readonly Func<IContext, object> WebRequest = ctx =>
 		{
-			var httpRequest = HttpContext.Current.Request;
-			ctx.Request = new HttpRequestWrapper(httpRequest);
-			return ctx.Request;
+			lock(lockObj)
+			{
+				var httpContext = HttpContext.Current;
+				if (httpContext.Items.Contains(ctx))
+					return ctx;
+
+				httpContext.Items.Add(ctx, "");
+				return ctx;
+			}
 		};
 	}
 }

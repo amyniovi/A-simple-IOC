@@ -27,3 +27,17 @@
 /Users/amyniovi/Projects/IOC/IOC.Web.MVC/bin/Debug/System.Web.Mvc.dll
 /Users/amyniovi/Projects/IOC/IOC.Web.MVC/bin/Debug/IOC.dll
 /Users/amyniovi/Projects/IOC/IOC.Web.MVC/bin/Debug/IOC.dll.mdb
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/IOC.Web.MVC.dll.mdb
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/IOC.Web.MVC.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/obj/Debug/IOC.Web.MVC.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/obj/Debug/IOC.Web.MVC.dll.mdb
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/System.Web.Razor.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/Microsoft.Web.Infrastructure.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/System.Web.Helpers.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/System.Web.WebPages.Deployment.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/System.Web.WebPages.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/System.Web.WebPages.Razor.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/System.Web.Mvc.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/IOC.dll
+/Users/amyniovi/Documents/Xamarin Projects/Projects/IOC/IOC.Web.MVC/bin/Debug/IOC.dll.mdb

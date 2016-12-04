@@ -2,9 +2,6 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
 
 /*
 This class inherits from DefaultControllerFactory in MVC framework.
@@ -20,8 +17,6 @@ namespace IOC
 	{
 		private IController _myController = null;
 		private Kernel _kernel;
-		private System.Web.HttpRequestBase _httpRequest = null;
-		//private Request _request;
 
 		public MyControllerFactory(Kernel kernel)
 		{
@@ -30,10 +25,6 @@ namespace IOC
 
 		protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
 		{
-			//make this threadsafe !!!!! TODO
-			_httpRequest = requestContext.HttpContext.Request;
-			//_request = new Request { WebRequest =  _httpRequest};
-			_kernel.Requests.Add(_httpRequest);
 			_myController = (IController)_kernel.Resolve(controllerType);
 
 			return _myController;
@@ -45,8 +36,6 @@ namespace IOC
 
 		public override void ReleaseController(IController controller)
 		{
-			//destroy scope
-			_kernel.Requests.Remove(_httpRequest);
 			base.ReleaseController(_myController);
 		}
 

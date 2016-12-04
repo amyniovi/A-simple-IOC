@@ -1,27 +1,8 @@
 ﻿<Properties StartupConfiguration="{F891B7A6-91DF-4441-A543-5C8829DD569C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="IOC/Kernel.cs">
-    <Files>
-      <File FileName="IOC/LifeCycle/LifeCycleScope.cs" Line="2" Column="1" />
-      <File FileName="IOC/LifeCycle/ScopeCallbacks.cs" Line="5" Column="2" />
-      <File FileName="IOC/Context.cs" Line="1" Column="1" />
-      <File FileName="IOC/IContext.cs" Line="18" Column="26" />
-      <File FileName="IOC/IOC.cs" Line="1" Column="1" />
-      <File FileName="IOC/IRequest.cs" Line="8" Column="3" />
-      <File FileName="IOC/Request.cs" Line="13" Column="3" />
-      <File FileName="IOC.Web.MVC/MyControllerFactory.cs" Line="15" Column="70" />
-      <File FileName="ControllerFactory/App_Start/RouteConfig.cs" Line="1" Column="1" />
-      <File FileName="ControllerFactory/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="ControllerFactory/IOC/IOCRegisterModule.cs" Line="1" Column="1" />
-      <File FileName="ControllerFactory/Global.asax.cs" Line="1" Column="1" />
-      <File FileName="IOC/Kernel.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/IOC/Kernel.cs" line="192" column="1" />
-      <Breakpoint file="/Users/amyniovi/Projects/TryingOutStuff/IOC.Web.MVC/MyControllerFactory.cs" line="50" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.3._220Sandbox.IOCClient PreferredExecutionTarget="MonoDevelop.Default" />

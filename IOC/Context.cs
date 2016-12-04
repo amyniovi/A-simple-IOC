@@ -36,8 +36,6 @@ namespace IOC
 
 		public LifeCycleScope Scope { get; set; }
 
-		public HttpRequestBase Request { get; set; }
-
 		public object TargetImplementationInstance { get; set; }
 	}
 }

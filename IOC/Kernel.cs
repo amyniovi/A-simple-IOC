@@ -5,6 +5,9 @@ using System.Threading;
 using System.Web;
 namespace IOC
 {
+	/*
+	 * Assumption: One Implementation binding per contract type. 
+	*/
 	public class Kernel
 	{
 		public const string BIND_ERROR = "BIND ERROR: ";
@@ -91,7 +94,7 @@ namespace IOC
 				if (registrationContext == null)
 					throw new Exception(RESOLVE_ERROR + type + "has not been registered with the IOC.");
 
-				CheckScope(type, registrationContext);
+				CheckScope(registrationContext);
 				if (registrationContext.TargetImplementationInstance != null)
 					return registrationContext.TargetImplementationInstance;
 
@@ -152,7 +155,7 @@ namespace IOC
 		 * remains alive (not garbage collected), the associated instance is returned. 
 		 * Otherwise a new instance is activated
 		 */
-		private void CheckScope(Type contractType, IContext context)
+		private void CheckScope(IContext context)
 		{
 			var scope = context.GetScope();
 			if (scope == null)
@@ -181,14 +184,11 @@ namespace IOC
 
 			}
 			//per WebRequest Scope
-			//this is wrong , never works, and i dont think the logic is correct
-			if (scope is HttpRequestBase)
+			if (scope is IContext)
 			{
-				if (!Requests.Contains(context.Request))
-				{
-					context.TargetImplementationType = null;
-					return;
-				}
+				var httpContext = HttpContext.Current;
+				if (!httpContext.Items.Contains(context))
+					context.TargetImplementationInstance = null;
 			}
 			return;
 		}
@@ -253,14 +253,14 @@ namespace IOC
 
 		void SetUpContextScope<T>(IContext context, LifeCycleScope scope) where T : class
 		{
+			var oldContext = context;
 			var instance = this.Resolve<T>();
 			context.TargetImplementationInstance = instance;
 			context.CurrentKernel = this;
 			context.CurrentThread = Thread.CurrentThread;
 			context.Scope = scope;
 
-			//I might need to use TryUpdate???
-			Services[typeof(T)] = context;
+			Services.TryUpdate(typeof(T), context, oldContext);
 		}
 	}
 }
